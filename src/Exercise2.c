@@ -52,7 +52,31 @@ void printArray(int a[SIZE][SIZE], int m, int n)
 void Ex2(int arr[], int m, int n){
 	int a[SIZE][SIZE];
 	Array2Dconverter(arr,a,m,n);
-	//Your codes here
+int counter;
+	for(column =0;column <= m; column ++){
+		for(row=0; row <= n; row ++){
+          if column % 2 != 0{
+		   int a=4,b=3;
+		   counter=row[m-a]column[n-a];
+		   row[m-a]column[n-a]=row[m-b]column[n-b];
+	       
+		   a--;
+	       b--;
+		  }
+	  }
+  }
+     
+	10 21 12 53                                                                      |
+| 64 53 86 72                                                                      |
+| 68 99 10 11                                                                      |
+| 12 13 14 15                                                                      |
+| 16 17 18 19                                                                      |
+| Output:                                                                          |
+| 68 13 86 11                                                                      |
+| 64 17 18 15                                                                      |
+| 16 21 14 19                                                                      |
+| 12 53 12 53                                                                      |
+| 10 99 10 72   
 
 	printArray(a, m, n);
 }
