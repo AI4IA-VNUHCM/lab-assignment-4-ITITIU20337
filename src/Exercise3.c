@@ -25,7 +25,7 @@ _________________________________________________________________
 void Array2Dconverter(int arr[], int a[SIZE][SIZE], int m, int n)
 {
 	int row, column;
-	int counter = 0;
+	int counter = 0; 
 	//Convert 1D array to 2D array
 	for (row = 0; row <= (m - 1); row ++){
 		for (column = 0; column <= (n - 1); column ++){
@@ -50,11 +50,29 @@ void printArray(int a[SIZE][SIZE], int m, int n)
 void Ex3(int in_arr[], int n){
 	int a[SIZE][SIZE];
 	Array2Dconverter(in_arr,a,n,n);
-	//Your codes here
 	
+	for (int i = 0; i < n ;i++){
+		for (int j = i+1; j<n;j++){
+			int count = a[i][i];
+			if (a[j][j] < count){
+				count = a[j][j];
+				a[j][j] = a[i][i];
+				a[i][i] = count;
+			}
+		}
+	}
+	for (int i = 0; i < n; i++){
+		for (int j = i+1; j < n; j++){
+			int count = a[i][n-i-1];
+			if (a[j][n-j-1] < count){
+				count = a[j][n-j-1];
+				a[j][n-j-1] = a[i][n-i-1];
+				a[i][n-i-1] = count;
+			}
+		}
+	}			
 	printArray(a,n,n);
 }
-
 int main(int argc, char *argv[]) {
 	//testing variable, applying it to your algorithm for auto-evaluating
 	int edge = atoi(argv[1]);

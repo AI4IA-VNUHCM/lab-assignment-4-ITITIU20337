@@ -50,14 +50,50 @@ void printArray(int a[SIZE][SIZE], int m, int n)
 }
 
 void Ex2(int arr[], int m, int n){
-	int a[SIZE][SIZE];
+    int a[SIZE][SIZE];
 	Array2Dconverter(arr,a,m,n);
-	//Your codes here
+    int counter;
+	int i,j;
 
+    for(int i = 0;i < (m-1);i++){
+        for(int j = (i+1);j < m;j++){
+            if(a[i][0] < a[j][0]){    
+                counter = a[i][0];
+                a[i][0] = a[j][0];
+                a[j][0] = counter;
+            }
+        }
+    }
+	for(int i = 0;i < (m-1);i++){
+        for(int j = i+1;j < m;j++){
+            if(a[i][1]>a[j][1]){    
+                counter = a[i][1];
+                a[i][1] = a[j][1];
+                a[j][1] = counter;
+            }
+        }
+    }
+	for(int i = 0;i < (m-1);i++){
+        for(int j = i+1;j < m;j++){
+            if(a[i][2] < a[j][2]){    
+                counter = a[i][2];
+                a[i][2] = a[j][2];
+                a[j][2] = counter;
+            }
+        }
+    }
+    for(int i = 0;i < (m-1);i++){
+        for(int j = i+1;j < m;j++){
+            if(a[i][3] > a[j][3]){    
+                counter = a[i][3];
+                a[i][3] = a[j][3];
+                a[j][3] = counter;
+            }
+        }
+    }
 	printArray(a, m, n);
-}
-
-int main(int argc, char *argv[]) {
+} 
+int main(int argc, char *argv[]){
 	//testing variable, applying it to your algorithm for auto-evaluating
 	int row = atoi(argv[1]);
 	int col = atoi(argv[2]);
