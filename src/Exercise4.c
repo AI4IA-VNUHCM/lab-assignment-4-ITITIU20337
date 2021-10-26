@@ -52,7 +52,8 @@ void insertRow(int arr[], int a[SIZE][SIZE],int rowIndex, int m, int n){
 		for (int column = 0; column < n; column++){
 			a[row+1][column] = a[row][column];
 		}
-	} 
+	}
+	m++; 
 	for (int column=0; col < n; column++) {
 		a[rowIndex][col] = arr[column];
 	}
@@ -63,7 +64,8 @@ void removeRow(int a[SIZE][SIZE], int rowIndex, int m, int n){
 		for (int column=0; column < n; column++) {
 			a[row][column] = a[row+1][column];
 		}
-	} 
+	}
+    m--;
 	printArray(a,m, n);
 }
 void insertCol(int arr[], int a[SIZE][SIZE],int colIndex, int m, int n){
@@ -72,18 +74,19 @@ void insertCol(int arr[], int a[SIZE][SIZE],int colIndex, int m, int n){
 			a[row][column+1] = a[row][column];
 		}
 	}
+	n++;
 	for ( row = 0; row < m; row++) {
 		a[row][colIndex] = arr[row];
 	}
 	printArray(a,m, n);
 }
-
 void removeCol(int a[SIZE][SIZE], int colIndex, int m, int n){
 	for ( column = colIndex; column < n; col++) {
 		for ( row = 0; row < m; row++) {
 			a[row][column] = a[row][column+1];
 		}
 	}
+	n--;
 	printArray(a,m, n);
 }
 
