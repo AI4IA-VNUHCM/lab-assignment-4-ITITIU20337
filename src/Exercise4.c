@@ -48,23 +48,43 @@ void printArray(int a[SIZE][SIZE], int m, int n)
 }
 
 void insertRow(int arr[], int a[SIZE][SIZE],int rowIndex, int m, int n){
-	//Your codes here
-	
+	for (int row = m - 1; row >= rowIndex; row--){
+		for (int column = 0; column < n; column++){
+			a[row+1][column] = a[row][column];
+		}
+	} 
+	for (int column=0; col < n; column++) {
+		a[rowIndex][col] = arr[column];
+	}
+	printArray(a,m, n);
 }
-
 void removeRow(int a[SIZE][SIZE], int rowIndex, int m, int n){
-	//Your codes here
-	
+	for (int row = rowIndex; row < m; row++) {
+		for (int column=0; column < n; column++) {
+			a[row][column] = a[row+1][column];
+		}
+	} 
+	printArray(a,m, n);
 }
-
 void insertCol(int arr[], int a[SIZE][SIZE],int colIndex, int m, int n){
-	//Your codes here
-	
+	for (int column = n - 1; column >= colIndex; column--) {
+		for (int row = 0 ; row < m; row++) {
+			a[row][column+1] = a[row][column];
+		}
+	}
+	for ( row = 0; row < m; row++) {
+		a[row][colIndex] = arr[row];
+	}
+	printArray(a,m, n);
 }
 
 void removeCol(int a[SIZE][SIZE], int colIndex, int m, int n){
-	//Your codes here
-	
+	for ( column = colIndex; column < n; col++) {
+		for ( row = 0; row < m; row++) {
+			a[row][column] = a[row][column+1];
+		}
+	}
+	printArray(a,m, n);
 }
 
 int main(int argc, char *argv[]) {
